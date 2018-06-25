@@ -59,14 +59,12 @@ function move(dRow, dCol) {
     // on.  The way this function should work is that "dRow" is used to
     // determine how many rows to move the player, and "dCol" is used to
     // determine how many columns to move the player.
-
-
     // Using avatarRow and dRow, compute destRow (where the player should move
     // vertically). You'll need to replace "undefined" to do so.
-    const destRow = undefined; 
+    const destRow = avatarRow + dRow; 
     // Using avatarCOl and dCol, compute destCol (where the player should move
     // vertically). You'll need to replace "undefined" to do so.
-    const destCol = undefined;
+    const destCol = avatarCol + dCol;
     const destCell = map[destRow][destCol];
 
     // Check that it is within the bounds of the map, and not a wall.
@@ -93,7 +91,12 @@ document.addEventListener('keydown', (event) => {
     
     // "move" takes 2 arguments: a row offset, and a column offset.  For example
     // move(1, 0) would move the player 1 square down and 0 squares to the
-    // right.
+    // right.]
+    const keyName = event.key;
+    if (keyName === "ArrowDown") {move(1,0);}
+    if (keyName === "ArrowLeft") {move(0,-1);}
+    if (keyName === "ArrowRight") {move(0,1);}
+    if (keyName === "ArrowUp") {move(-1,0);}
 
     // Write some logic to check the value of "event.key" and call "move()"
     // with the proper arguments.
